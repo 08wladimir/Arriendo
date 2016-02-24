@@ -20,17 +20,17 @@
                     </thead>
                     <tbody>
                         <tr>
-                    <div id="cajas">
-                        <td><input type="text" name="usua" Usuario ="Usuario"></td>
-                        <td><input type="password" name="contra" Password ="Contraseña"></td>
-                    </div>
-                    </tr>
-                    <tr>
-                    <div id="button">
-                        <td></td>
-                        <td><input type="submit" name="login" target="_blank" value="Ingresar" class="btn"/></td>
-                    </div>
-                    </tr>
+                            <div id="cajas">
+                                <td><input type="text" name="usua" Usuario ="Usuario"></td>
+                                <td><input type="password" name="contra" Password ="Contraseña"></td>
+                            </div>
+                        </tr>
+                        <tr>
+                            <div id="button">
+                                <td><input type="submit" name="pago" target="_blank" value="Pagar En Linea" class="btn"/></td>
+                                <td><input type="submit" name="login" target="_blank" value="Ingresar" class="btn"/></td>
+                            </div>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -38,17 +38,17 @@
         <div class="margenIndex">
             <%@include file="MasterPages/HeaderPrincipal.jsp"%>
         </div>
-        
+
         <div>
             <p>
-                
+
             </p>
         </div>
-        
-        
+
+
         <%@include file="MasterPages/Footer.jsp" %>
         <br><br><br>
-        
+
         <%
             if (request.getParameter("login") != null) {
                 Conexion con = new Conexion();
@@ -66,8 +66,13 @@
 
         %>
         
-        <%  
-            Conexion con = new Conexion();
+        <%
+            if (request.getParameter("pago") != null) {
+                response.sendRedirect("Pago.jsp");
+            }
+        %>
+
+        <%            Conexion con = new Conexion();
             Connection cn = Conexion.Conexion();
 
             String dato = request.getParameter("usua");
@@ -77,6 +82,6 @@
 
 
         %>
-        
+
     </body>
 </html>
